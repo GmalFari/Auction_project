@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        {% for obj in object_list %}
+                <p><a href="{% url 'detail' obj.id %}">{{obj.title}} </a>  {{obj.description}} | {{obj.cur_price}}</p>
+        {% endfor %}
+    </div>
+{% endblock %}

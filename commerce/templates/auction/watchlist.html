@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<style>
+    table {
+      border-collapse: separate;
+      background-color: #d9d9d9;
+    }
+    th {
+      border: 0.5px solid #090a0a;
+      padding:5px;
+      margin:20px;
+     
+    }
+    td {
+      border: 1px groove #0a0a0b;
+      padding:5px;
+    }
+  </style>
+    <table>
+        <tr>
+            <th>title</th>
+            <th>description</th>
+            <th>starting_bid</th>
+            <th>user</th>
+            <th>cur_price</th>
+            <th>category</th>
+            <th>publish</th>
+            <th> add to Watchlist</th>
+        </tr>
+        <tr>
+            <td>{{object.title}}</td>
+            <td>{{ object.description}}</td>
+            <td>{{ object.cur_price}}</td>
+            <td>{{ object.user}}</td>
+            <td>{{ object.starting_bid}}</td>
+            <td>{{ object.category}} </td>
+            <td>{{object.publish}}</td>
+        </tr>
+
+    </table>
+    </div>
+
+        {% endblock %}

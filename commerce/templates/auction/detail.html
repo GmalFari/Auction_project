@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<style>
+    table {
+      border-collapse: separate;
+      background-color: #d9d9d9;
+    }
+    th {
+      border: 0.5px solid #090a0a;
+      padding:5px;
+      margin:20px;
+     
+    }
+    td {
+      border: 1px groove #0a0a0b;
+      padding:5px;
+    }
+  </style>
+    {% if bid_error %}
+      <p>{{bid_error}}</p>
+    {% endif %}
+    <table>
+        <tr>
+            <th>title</th>
+            <th>description</th>
+            <th>starting_bid</th>
+            <th>user</th>
+            <th>cur_price</th>
+            <th>category</th>
+            <th>publish</th>
+            <th> add to Watchlist</th>
+        </tr>
+        <tr>
+            <td>{{object.title}}</td>
+            <td>{{ object.description}}</td>
+            <td>{{ object.starting_bid}}</td>
+            <td>{{ object.user}}</td>
+            <td>{{ object.cur_price}}</td>
+            <td>{{ object.category}} </td>
+            <td>{{object.publish}}</td>
+            <td>
+                <form action="{% url 'watchlist' object.id %}" method="POST">
+                    {% csrf_token %}
+                    
+                    <input id="watchlist_id" name="watchlist_name" type="submit" value="add to watchlist">
+                  </form>
+                </td>
+                <td>
+                <form action="{% url 'detail' object.id %}" method="POST">
+                  {% csrf_token %}
+                  <input type="number" name="bid" id="">
+                  <input type="submit" name="bid_form" value="add bid">
+              </form>
+            </td>
+        </tr>
+    </table>
+    </div>
+        {% endblock %}
